@@ -1,0 +1,110 @@
+{
+  "panels": {
+    "default": {
+      "title": "Panel defecto",
+      "description": "No implementado"
+    },
+    "shifts": {
+      "title": "TURNOS",
+      "description": "Informacio consolidada y ordenaada para la toma de deciones y gestion.",
+      "KPI1": {
+        "title": "HORAS TOTALES"
+      },
+      "KPI2": {
+        "title": "TOTAL TURNOS"
+      },
+      "KPI3": {
+        "title": "COLABORADORES"
+      },
+      "KPI4": {
+        "title": "SUCURSALES"
+      },
+      "KPI5": {
+        "title": "TURNOS",
+        "badge": "En pausa"
+      },
+      "KPI6": {
+        "title": "HORAS",
+        "badge": "En pausa"
+      },
+      "KPI7": {
+        "title": "TURNOS",
+        "badge": "Vencidos"
+      },
+      "KPI8": {
+        "title": "TURNOS",
+        "badge": "En curso"
+      },
+      "KPI9": {
+        "title": "TURNOS",
+        "badge": "Pendientes"
+      }
+      ,
+      "KPI10": {
+        "title": "EJECUCION DE TURNOS"
+      }
+    },
+    "main": {
+      "title": "Panel principal",
+      "description": "Informacio consolidada y ordenaada para la toma de deciones y gestion.",
+      "section1": { "title": "Asociados" },
+      "section2": { "title": "Identificación standard" },
+      "section3": { "title": "Servicios" },
+      "section4": { "title": "Consultoría" },
+      "section5": { "title": "Educacion" },
+      "section6": { "title": "Investigación" },
+      "section7": { "title": "Calidad de datos" }
+    },
+    "menu": {
+      "title": "Menu",
+      "description": "Menu pricipal",
+      "section1": { "title": "Turnos" },
+      "section2": { "title": "Tareas" },
+      "section3": { "title": "Productos" },
+      "section4": { "title": "Actividades" },
+      "section5": { "title": "Productividad" }
+    }
+  },
+  "button": {
+    "signIn": "Ingresar",
+    "logOut": "Cerrar sesion",
+    "back": "Volver",
+    "viewMore": "Ver mas"
+  },
+  "label": {
+    "keepMeConnected": "Mantenerme conectado",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "toPreviousMonth": "Respecto al mes anterior"
+  },
+  "placeholder": {
+    "email": "su.correo@mail.com",
+    "password": "Su contraseña",
+    "dateSelector": "Seleccione una fecha",
+    "retailers": "Todas las cadenas",
+    "stores": "Todas las tiendas"
+  },
+  "main": {
+    "title": "Bienvenido!"
+  },
+  "auth": {
+    "title": "Bienvenido!",
+    "doNotHaveAccount": "¿Aun no tiene una cuenta?",
+    "createAccount": "Crear una cuenta",
+    "forgotPassword": "Olvido su contraseña?"
+  },
+  "footer": {
+    "message": "© 2022 zeetrex All rights reserved."
+  },
+  "validation": {
+    "emailFormat": "Formato de correo electrónico incorrecto",
+    "passwordFormat": "Formato de contraseña incorrecto"
+  },
+  "errors": {
+    "title": "Error",
+    "invalidEmail": "Formato de email invalido",
+    "required": "Campo requerido"
+  },
+  "legend-1": "EL PODER DE LOS STANDARES",
+  "legend-2": "El lenguaje mundial de los negocios"
+}
