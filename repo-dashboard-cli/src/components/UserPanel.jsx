@@ -6,7 +6,7 @@ const UserPanel = () => {
   const { userInfo } = useContext(AppStateContext);
 
   const getUserPhoto = () => {
-    let photo = "dashboard/photos/user_default.png";
+    let photo = "photos/user_default.png";
     if (userInfo) {
       photo = `photos/${userInfo.photo}`;
     }

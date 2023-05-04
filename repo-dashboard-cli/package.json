@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://192.168.0.85/repo-app/dashboard",
+  "homepage": "http://192.168.0.10/repo-app/dashboard",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
