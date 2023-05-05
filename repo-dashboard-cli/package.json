@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://192.168.0.85/repo-app/dashboard",
+  "homepage": "http://192.168.0.10/repo-app/dashboard",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -17,6 +17,7 @@
     "i18next": "^22.4.13",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.2.0",
+    "leaflet": "^1.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.2.0",

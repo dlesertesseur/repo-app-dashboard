@@ -1,12 +1,4 @@
-import {
-  Bold,
-  Button,
-  Card,
-  Flex,
-  Metric,
-  Subtitle,
-  Title,
-} from "@tremor/react";
+import { Button, Flex, Metric, Subtitle, Title } from "@tremor/react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -15,20 +7,30 @@ import { AppStateContext } from "../../context/AppStateContext";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useWindowSize } from "../../hooks";
 import { getStoresByRetailId } from "../../api/retailers.api";
+import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
 
 const MapPanel = () => {
   const [stores, setStores] = useState(null);
-  const [position, setPosition] = useState([
-    -34.60347397265535, -58.381591857672035,
-  ]);
+  const [position, setPosition] = useState([-34.60347397265535, -58.381591857672035]);
 
-  const mapRef = useRef(null)
   const { selectedRetailer, selectedStore } = useContext(AppStateContext);
-  const size = useWindowSize();
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
+  const mapRef = useRef(null);
+  const size = useWindowSize();
+  const navigate = useNavigate();
+
+  const createIcon = () =>{
+    const icon = new L.Icon({
+      iconUrl:"/repo-app/dashboard/retailers/" + selectedRetailer + ".png",
+      // iconAnchor: [25,25],
+      // popupAnchor: [25,25],
+      iconSize: [32, 32],
+    })
+
+    return(icon);
+  }
   const onPress = () => {
     //navigate("shifts");
     navigate("default");
@@ -52,11 +54,8 @@ const MapPanel = () => {
 
   useEffect(() => {
     if (selectedStore) {
-
-      const found = stores?.find(store => store.id === selectedStore);
-      if(found){
-        console.log("useEffect() selectedStore found",found)
-        
+      const found = stores?.find((store) => store.id === selectedStore);
+      if (found) {
         const position = [found.latitude, found.longitude];
         const zoom = 13;
         mapRef.current.flyTo(position, zoom);
@@ -67,9 +66,13 @@ const MapPanel = () => {
   const loadStores = () => {
     let ret = null;
     if (stores) {
-      ret = stores.map((store) => {
+      ret = stores?.map((store) => {
         return (
-          <Marker key={store.id} position={[store.latitude, store.longitude]}>
+          <Marker
+            icon={createIcon()}
+            key={store.id}
+            position={[store.latitude, store.longitude]}
+          >
             <Popup>
               <Title>{store.name}</Title>
               <Subtitle>{store.address}</Subtitle>
@@ -86,7 +89,6 @@ const MapPanel = () => {
       <Flex dir="row" alignItems="center" justifyContent="between">
         <div>
           <Metric>{t("panels.map.title")}</Metric>
-          {/* <Subtitle>{t("panels.map.description")}</Subtitle> */}
         </div>
         <div>
           <Button size="xs" onClick={onBack}>
@@ -96,10 +98,7 @@ const MapPanel = () => {
       </Flex>
 
       {size.height ? (
-        <Flex
-          className="mt-2 bg-slate-400 z-0"
-          style={{ height: size.height - 200 }}
-        >
+        <Flex className="mt-2 z-0" style={{ height: size.height - 200 }}>
           <MapContainer
             center={position}
             zoom={13}

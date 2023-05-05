@@ -12,7 +12,7 @@ export const ProtectedRoute = ({ children, header = true }) => {
   return (
     <div className="h-screen">
       <HeaderBar />
-      {header ? <SelectionHeader /> : null}
+      <SelectionHeader/>
       <div>{children}</div>
     </div>
   );

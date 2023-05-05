@@ -9,10 +9,12 @@ const RetailerSelector = () => {
   const { t } = useTranslation();
   const [retailers, setRetailers] = useState([]);
   const [stores, setStores] = useState([]);
+
   const {
     setSelectedRetailer,
     selectedRetailer,
     setSelectedStore,
+    selectedStore,
   } = useContext(AppStateContext);
 
   const getRetailers = async () => {
@@ -93,6 +95,7 @@ const RetailerSelector = () => {
         onValueChange={(value) => {
           setSelectedStore(value);
         }}
+        value={selectedStore ? selectedStore : "all"}
       >
         {stores ? createStores() : null}
       </SelectBox>
@@ -107,11 +110,13 @@ const RetailerSelector = () => {
         onValueChange={(value) => {
           onRetailerSelected(value);
         }}
+        value={selectedRetailer ? selectedRetailer : "all"}
+
       >
         {retailers ? createRetailers() : null}
       </SelectBox>
 
-      {selectedRetailer ? showStoreSelector() : null}
+      {selectedRetailer && stores? showStoreSelector() : null}
     </Flex>
   );
 };

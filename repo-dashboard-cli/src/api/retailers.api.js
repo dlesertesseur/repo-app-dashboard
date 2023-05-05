@@ -15,7 +15,7 @@ const getAllRetailers = async () => {
     const url = API.retailers.getAll;
     const res = await fetch(url, requestOptions);
     const data = await res.json();
-  
+
     return (data);
   };
 

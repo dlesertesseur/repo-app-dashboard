@@ -11,7 +11,7 @@ const DefaultPanel = () => {
   };
 
   return (
-    <div className="bg-gray-100 px-10 pt-2 w-screen h-screen justify-start">
+    <div className="px-10 pt-2 w-screen">
       <Flex dir="row" alignItems="center" justifyContent="between">
         <div>
           <Title>{t("panels.default.title")}</Title>
@@ -23,7 +23,10 @@ const DefaultPanel = () => {
           </Button>
         </div>
       </Flex>
+
+      <div className="h-96 pt-4 bg-slate-100 rounded-md"></div>
     </div>
+    
   );
 };
 
