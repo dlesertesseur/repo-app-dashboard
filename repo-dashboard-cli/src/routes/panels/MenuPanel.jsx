@@ -9,6 +9,7 @@ import MenuCard from "../../components/MenuCard";
 import {
   ChartBarIcon,
   InboxIcon,
+  MapIcon,
   ShoppingBagIcon,
   UsersIcon,
   ViewListIcon,
@@ -26,6 +27,10 @@ const MenuPanel = () => {
 
   const onPressDefault = () => {
     navigate("default");
+  };
+
+  const onNavigate = (screen) => {
+    navigate(screen);
   };
 
   const getUserInfo = async () => {
@@ -79,6 +84,14 @@ const MenuPanel = () => {
             onPress={onPressDefault}
             icon={ChartBarIcon}
             color={"teal"}
+          />
+        </Col>
+        <Col>
+          <MenuCard
+            title={t("panels.menu.section6.title")}
+            onPress={() => {onNavigate("map")}}
+            icon={MapIcon}
+            color={"gray"}
           />
         </Col>
       </Grid>

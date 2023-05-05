@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "http://192.168.0.10/repo-app/dashboard",
+  "homepage": "http://192.168.0.85/repo-app/dashboard",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -20,6 +20,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.2.0",
+    "react-leaflet": "^4.2.1",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
     "yup": "^1.1.1"

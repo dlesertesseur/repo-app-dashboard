@@ -11,7 +11,7 @@ const SelectionHeader = () => {
   const { selectedDate, setSelectedDate } = useContext(AppStateContext);
 
   return (
-    <div>
+    <div className="z-50">
       <Flex className="py-2 px-10 justify-between w-full">
         <div>
           <DateRangePicker

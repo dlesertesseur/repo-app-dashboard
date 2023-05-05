@@ -7,6 +7,7 @@ import SignInPanel from "./routes/auth/SignInPanel";
 import DefaultPanel from "./routes/panels/DefaultPanel";
 import MenuPanel from "./routes/panels/MenuPanel";
 import ShiftsPanel from "./routes/panels/ShiftsPanel";
+import MapPanel from "./routes/panels/MapPanel";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState([Date.now(), Date.now()]);
@@ -65,6 +66,16 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <DefaultPanel />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                exact
+                path="/menu/map"
+                element={
+                  <ProtectedRoute>
+                    <MapPanel />
                   </ProtectedRoute>
                 }
               />

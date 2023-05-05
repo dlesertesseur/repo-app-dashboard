@@ -9,7 +9,9 @@ const getAllStoresByRetailId = async (id) => {
     const ret = {
       id: store._id.toString(),
       name: store.name,
-      address: store.address
+      address: store.address,
+      latitude: store.latitude,
+      longitude: store.longitude
     };
     return ret;
   });

@@ -6,7 +6,7 @@
     },
     "shifts": {
       "title": "TURNOS",
-      "description": "Informacio consolidada y ordenaada para la toma de deciones y gestion.",
+      "description": "Informacio consolidada y ordenada para la toma de deciones y gestion.",
       "KPI1": {
         "title": "HORAS TOTALES"
       },
@@ -46,7 +46,7 @@
     },
     "main": {
       "title": "Panel principal",
-      "description": "Informacio consolidada y ordenaada para la toma de deciones y gestion.",
+      "description": "Informacio consolidada y ordenada para la toma de deciones y gestion.",
       "section1": { "title": "Asociados" },
       "section2": { "title": "Identificación standard" },
       "section3": { "title": "Servicios" },
@@ -62,7 +62,12 @@
       "section2": { "title": "Tareas" },
       "section3": { "title": "Productos" },
       "section4": { "title": "Actividades" },
-      "section5": { "title": "Productividad" }
+      "section5": { "title": "Productividad" },
+      "section6": { "title": "Mapa" }
+    },
+    "map": {
+      "title": "MAPA",
+      "description": "Informacio consolidada y ordenada en mapas, para la toma de deciones y gestion."
     }
   },
   "button": {
