@@ -11,6 +11,7 @@ import retailersRoute from "./routes/retailers.route.js";
 import cookieParser from "cookie-parser";
 import config from "./config/config.js";
 import cors from "cors";
+import indicatorsRoute from "./routes/indicators.route.js";
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use(`${config.BASE_API_URL}/panels`, panelsRoute);
 app.use(`${config.BASE_API_URL}/organizations`, organizationsRoute);
 app.use(`${config.BASE_API_URL}/retailers`, retailersRoute);
 app.use(`${config.BASE_API_URL}/stores`, retailerStoresRoute);
+app.use(`${config.BASE_API_URL}/indicators`, indicatorsRoute);
 
 const httpServer = app.listen(config.PORT, () => {
   console.log(`Server running on port: ${httpServer.address().port}`);

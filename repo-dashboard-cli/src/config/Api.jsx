@@ -15,6 +15,11 @@ const API = {
       getByName: config.API_SERVER + config.API_URL + "/panels",
     },
 
+    indicators: {
+      getAll: config.API_SERVER + config.API_URL + "/indicators",
+      getByName: config.API_SERVER + config.API_URL + "/indicators",
+    },
+
     retailers: {
       getAll: config.API_SERVER + config.API_URL + "/retailers",
       getStoresByRetailId: config.API_SERVER + config.API_URL + "/stores/",
