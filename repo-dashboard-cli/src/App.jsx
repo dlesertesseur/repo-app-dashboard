@@ -8,6 +8,8 @@ import DefaultPanel from "./routes/panels/DefaultPanel";
 import MenuPanel from "./routes/panels/MenuPanel";
 import ShiftsPanel from "./routes/panels/ShiftsPanel";
 import MapPanel from "./routes/panels/MapPanel";
+import DetailPanel from "./routes/panels/DetailPanel";
+import ActivityDetailPanel from "./routes/panels/ActivityDetailPanel";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState([Date.now(), Date.now()]);
@@ -76,6 +78,24 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <MapPanel />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                exact
+                path="/menu/detail"
+                element={
+                  <ProtectedRoute>
+                    <DetailPanel />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                exact
+                path="/menu/detail/activityDetail"
+                element={
+                  <ProtectedRoute>
+                    <ActivityDetailPanel />
                   </ProtectedRoute>
                 }
               />

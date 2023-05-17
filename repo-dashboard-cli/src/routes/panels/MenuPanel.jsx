@@ -7,14 +7,7 @@ import { findUserById } from "../../api/user.api";
 import { AppStateContext } from "../../context/AppStateContext";
 
 import MenuCard from "../../components/MenuCard";
-import {
-  ChartBarIcon,
-  InboxIcon,
-  MapIcon,
-  ShoppingBagIcon,
-  UsersIcon,
-  ViewListIcon,
-} from "@heroicons/react/outline";
+import { UsersIcon } from "@heroicons/react/outline";
 
 import { getAllIndicators } from "../../api/indicators.api";
 
@@ -25,17 +18,17 @@ const MenuPanel = () => {
   const { setUserInfo } = useContext(AppStateContext);
   const [indicators, setIndicators] = useState(null);
 
-  const onPress = () => {
-    navigate("shifts");
-  };
+  // const onPress = () => {
+  //   navigate("shifts");
+  // };
 
-  const onPressDefault = () => {
-    navigate("default");
-  };
+  // const onPressDefault = () => {
+  //   navigate("default");
+  // };
 
-  const onNavigate = (screen) => {
-    navigate(screen);
-  };
+  // const onNavigate = (screen) => {
+  //   navigate(screen);
+  // };
 
   const getData = async () => {
     const params = { id: user.id };
@@ -47,10 +40,15 @@ const MenuPanel = () => {
     setIndicators(indicators[0].indicador);
   };
 
-  const onDetail = (detail) => {
-    console.log(detail);
-  }
-  
+  const onDetail = (title, detail) => {
+    navigate("detail", {
+      state: {
+        title: title,
+        detail: detail,
+      },
+    });
+  };
+
   useEffect(() => {
     getData();
   }, [user.id]);
@@ -64,61 +62,15 @@ const MenuPanel = () => {
               <MenuCard
                 title={indicator.descripcion}
                 metric={indicator.cantidad}
-                onPress={() => {onDetail(indicator.detalle)}}
+                onPress={() => {
+                  onDetail(indicator.descripcion, indicator.detalle);
+                }}
                 icon={UsersIcon}
-                color={"red"}
+                color={"blue"}
               />
             </Col>
           );
         })}
-        {/* <Col>
-          <MenuCard
-            title={t("panels.menu.section1.title")}
-            onPress={onPress}
-            icon={UsersIcon}
-            color={"blue"}
-          />
-        </Col>
-        <Col>
-          <MenuCard
-            title={t("panels.menu.section2.title")}
-            onPress={onPressDefault}
-            icon={InboxIcon}
-            color={"red"}
-          />
-        </Col>
-        <Col>
-          <MenuCard
-            title={t("panels.menu.section3.title")}
-            onPress={onPressDefault}
-            icon={ShoppingBagIcon}
-            color={"green"}
-          />
-        </Col>
-        <Col>
-          <MenuCard
-            title={t("panels.menu.section4.title")}
-            onPress={onPressDefault}
-            icon={ViewListIcon}
-            color={"orange"}
-          />
-        </Col>
-        <Col>
-          <MenuCard
-            title={t("panels.menu.section5.title")}
-            onPress={onPressDefault}
-            icon={ChartBarIcon}
-            color={"teal"}
-          />
-        </Col>
-        <Col>
-          <MenuCard
-            title={t("panels.menu.section6.title")}
-            onPress={() => {onNavigate("map")}}
-            icon={MapIcon}
-            color={"gray"}
-          />
-        </Col> */}
       </Grid>
     </div>
   );

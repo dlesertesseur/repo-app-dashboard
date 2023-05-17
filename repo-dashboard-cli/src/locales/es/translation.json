@@ -4,6 +4,36 @@
       "title": "Panel defecto",
       "description": "No implementado"
     },
+
+    "detail": {
+      "title": "Detalle de cuadrante",
+      "description": "Listado de operios/as que estan agrupados en el cuadrante",
+      "colums":{
+        "col1":"Operario/a",
+        "col2":"Descripcion",
+        "col3":"Hora (planif.)",
+        "col4":"Trabajo",
+        "col5":"Destino",
+        "col6":"Direccion",
+        "col7":"Corte (planif.)",
+        "col8":"Ingreso (real)",
+        "col9":"Egreso (real)",
+        "col10":"Estado"
+      }
+    },
+
+
+    "activityDetail": {
+      "title": "Detalle de actividad",
+      "description": "Listado de la actividad",
+      "colums":{
+        "col1":"EAN",
+        "col2":"Nombre",
+        "col3":"Cantidad",
+        "col4":"Estado"
+      }
+    },
+
     "shifts": {
       "title": "TURNOS",
       "description": "Informacio consolidada y ordenada para la toma de deciones y gestion.",
@@ -74,7 +104,8 @@
     "signIn": "Ingresar",
     "logOut": "Cerrar sesion",
     "back": "Volver",
-    "viewMore": "Ver mas"
+    "viewMore": "Ver mas",
+    "viewOnMap":"Ver en mapa"
   },
   "label": {
     "keepMeConnected": "Mantenerme conectado",

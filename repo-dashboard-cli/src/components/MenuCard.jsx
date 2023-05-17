@@ -11,7 +11,7 @@ const MenuCard = ({
   metric,
 }) => {
   return (
-    <Card key={title} onClick={onPress}>
+    <Card key={title} onClick={onPress} decoration="left" decorationColor={color} className="h-44">
       <div className="flex flex-row justify-between items-center">
         <Icon variant="light" icon={icon} size="md" color={color} />
         {metric ? <Metric className="">{metric}</Metric> : null}
