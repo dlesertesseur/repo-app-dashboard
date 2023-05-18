@@ -30,14 +30,29 @@ const DetailPanel = () => {
 
   const onSelectRow = (item) => {
     setSelectedRow(item.id);
-    if (item?.detalle && item?.detalle.length > 0) {
-      navigate("activityDetail", {
-        state: {
-          group: title,
-          user: item.asignadoA,
-          detail: item.detalle,
-        },
-      });
+
+    if (item.detalle) {
+      if (item.detalle.length > 0) {
+        navigate("activityDetail", {
+          state: {
+            group: title,
+            user: item.asignadoA,
+            detail: item.detalle,
+          },
+        });
+      }
+    } else {
+      if (item.detalleJornada) {
+        if (item.detalleJornada.length > 0) {
+          navigate("workingDayDetail", {
+            state: {
+              group: title,
+              user: item.asignadoA,
+              detail: item.detalleJornada,
+            },
+          });
+        }
+      }
     }
   };
 
@@ -65,22 +80,43 @@ const DetailPanel = () => {
       </Flex>
 
       {size && size.height > 0 ? (
-        <div className="mt-5 overflow-auto" style={{ height: size.height - 250 }}>
+        <div
+          className="mt-5 overflow-auto"
+          style={{ height: size.height - 250 }}
+        >
           <Card>
             {/* <Title>{title}</Title> */}
             <Table className="mt-5">
               <TableHead>
                 <TableRow>
                   <TableHeaderCell>{""}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col1")}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col3")}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col4")}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col5")}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col6")}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col7")}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col8")}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col9")}</TableHeaderCell>
-                  <TableHeaderCell>{t("panels.detail.colums.col10")}</TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col1")}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col3")}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col4")}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col5")}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col6")}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col7")}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col8")}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col9")}
+                  </TableHeaderCell>
+                  <TableHeaderCell>
+                    {t("panels.detail.colums.col10")}
+                  </TableHeaderCell>
                   <TableHeaderCell>{""}</TableHeaderCell>
                 </TableRow>
               </TableHead>
@@ -95,7 +131,10 @@ const DetailPanel = () => {
                   >
                     <TableCell>
                       <div className="inline-block h-12 w-12 rounded-full ring-2 ring-white">
-                        <img src={getPhoto(item.foto)} className="rounded-full" />
+                        <img
+                          src={getPhoto(item.foto)}
+                          className="rounded-full"
+                        />
                       </div>
                     </TableCell>
                     <TableCell>

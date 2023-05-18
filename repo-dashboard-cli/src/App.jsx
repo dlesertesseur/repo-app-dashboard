@@ -11,6 +11,7 @@ import MapPanel from "./routes/panels/MapPanel";
 import DetailPanel from "./routes/panels/DetailPanel";
 import ActivityDetailPanel from "./routes/panels/ActivityDetailPanel";
 import WorkingInStorePanel from "./routes/panels/WorkingInStorePanel";
+import WorkingDayDetailPanel from "./routes/panels/WorkingDayDetailPanel";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState([Date.now(), Date.now()]);
@@ -100,7 +101,15 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-
+              <Route
+                exact
+                path="/menu/detail/workingDayDetail"
+                element={
+                  <ProtectedRoute>
+                    <WorkingDayDetailPanel/>
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 exact
                 path="/menu/workingInStore"

@@ -22,6 +22,14 @@
       }
     },
 
+    "workingDayDetail": {
+      "title": "Detalle de cuadrante",
+      "description": "Listado de operios/as que estan agrupados en el cuadrante",
+      "colums":{
+        "col1":"Hora",
+        "col2":"Descripcion"
+      }
+    },
 
     "activityDetail": {
       "title": "Detalle de actividad",
