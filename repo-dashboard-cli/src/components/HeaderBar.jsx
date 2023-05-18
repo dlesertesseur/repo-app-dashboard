@@ -24,9 +24,9 @@ const HeaderBar = () => {
             alt="app-log"
           ></img>
         </div>
-        <div className="flex flex-wrap content-center">
+        {/* <div className="flex flex-wrap content-center">
           <OrganizationPanel />
-        </div>
+        </div> */}
         <div className="flex items-center">
           <div className="flex flex-wrap content-center">
             <UserPanel />

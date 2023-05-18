@@ -16,9 +16,21 @@ class RetailersDao{
   }
 
   async getAll() {
-    let ret = await this.collection.find();
+    let ret = await this.collection.find().lean();
     return ret;
   }
+
+  async findById(id) {
+    try {
+      let ret = await this.collection.findById(id).lean();
+      return ret;
+    } catch (error) {
+      throw error;
+    }
+  }
+
 }
+
+
 
 export default RetailersDao;

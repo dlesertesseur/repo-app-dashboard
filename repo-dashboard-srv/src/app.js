@@ -8,10 +8,11 @@ import panelsRoute from "./routes/panels.route.js";
 import organizationsRoute from "./routes/organizations.route.js";
 import retailerStoresRoute from "./routes/retailerStores.route.js";
 import retailersRoute from "./routes/retailers.route.js";
+import indicatorsRoute from "./routes/indicators.route.js";
+import workingInStoreRoute from "./routes/workingInStore.route.js";
 import cookieParser from "cookie-parser";
 import config from "./config/config.js";
 import cors from "cors";
-import indicatorsRoute from "./routes/indicators.route.js";
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use(`${config.BASE_API_URL}/organizations`, organizationsRoute);
 app.use(`${config.BASE_API_URL}/retailers`, retailersRoute);
 app.use(`${config.BASE_API_URL}/stores`, retailerStoresRoute);
 app.use(`${config.BASE_API_URL}/indicators`, indicatorsRoute);
+app.use(`${config.BASE_API_URL}/workingInStore`, workingInStoreRoute);
 
 const httpServer = app.listen(config.PORT, () => {
   console.log(`Server running on port: ${httpServer.address().port}`);

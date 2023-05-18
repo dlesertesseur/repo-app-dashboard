@@ -24,6 +24,10 @@ const API = {
       getAll: config.API_SERVER + config.API_URL + "/retailers",
       getStoresByRetailId: config.API_SERVER + config.API_URL + "/stores/",
     },
+
+    workingInStore: {
+      getAll: config.API_SERVER + config.API_URL + "/workingInStore",
+    },
 }  
 
 export { API }

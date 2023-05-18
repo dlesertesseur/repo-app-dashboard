@@ -17,7 +17,7 @@ const OrganizationPanel = () => {
     <div className="mr-6 flex items-center">
       {getLogo() ? (
         <div className="m-1 h-full flex justify-center items-center ">
-          <img src={getLogo()} className="h-10" />
+          <img src={getLogo()} className="h-6" />
         </div>
       ) : (
         <div className="h-full m-1">

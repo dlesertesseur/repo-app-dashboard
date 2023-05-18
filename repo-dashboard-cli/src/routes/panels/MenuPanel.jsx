@@ -1,5 +1,5 @@
 import { useEffect, useContext, useState } from "react";
-import { Grid, Col } from "@tremor/react";
+import { Grid, Col, Button } from "@tremor/react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -53,9 +53,25 @@ const MenuPanel = () => {
     getData();
   }, [user.id]);
 
+  const viewOnMap = () => {
+    navigate("workingInStore");
+  };
+
   return (
-    <div className="px-10 pt-2 w-screen">
-      <Grid numCols={1} numColsSm={2} numColsLg={3} className="gap-4 mt-6">
+    <div className="px-10 w-screen">
+      <div className="flex flex-row h-10 items-center justify-start">
+        <div>
+          <Button
+            size="xs"
+            variant="secondary"
+            onClick={viewOnMap}
+            className=""
+          >
+            {t("button.viewOnMap")}
+          </Button>
+        </div>
+      </div>
+      <Grid numCols={1} numColsSm={2} numColsLg={3} className="gap-4 mt-2">
         {indicators?.map((indicator) => {
           return (
             <Col key={indicator.indicador}>

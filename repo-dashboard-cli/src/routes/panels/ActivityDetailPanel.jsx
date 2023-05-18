@@ -35,10 +35,6 @@ const ActivityDetailPanel = () => {
   const onSelectRow = (item) => {
     setSelectedRow(item.id);
   };
-  
-  const onLocation = (even) => {
-    console.log("onLocation -> ",  even)
-  }
 
   const onBack = () => {
     navigate(-1);
@@ -57,10 +53,6 @@ const ActivityDetailPanel = () => {
           <Text>{t("panels.activityDetail.description")}</Text>
         </div>
         <div>
-          <Button size="xs" variant="secondary" onClick={onLocation} className="mr-5">
-            {t("button.viewOnMap")}
-          </Button>
-
           <Button size="xs" onClick={onBack}>
             {t("button.back")}
           </Button>

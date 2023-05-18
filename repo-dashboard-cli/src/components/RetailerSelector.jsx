@@ -19,7 +19,9 @@ const RetailerSelector = () => {
 
   const getRetailers = async () => {
     const ret = await getAllRetailers();
-    setRetailers(ret);
+    const filtered = ret.filter(r => r.name === "Jumbo Argentina S.A" );
+    setRetailers(filtered);
+    setSelectedRetailer(filtered[0].id);    
   };
 
   const getStores = async () => {
@@ -116,7 +118,7 @@ const RetailerSelector = () => {
         {retailers ? createRetailers() : null}
       </SelectBox>
 
-      {selectedRetailer && stores? showStoreSelector() : null}
+      {/* {selectedRetailer && stores? showStoreSelector() : null} */}
     </Flex>
   );
 };

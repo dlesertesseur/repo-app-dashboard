@@ -10,6 +10,7 @@ import ShiftsPanel from "./routes/panels/ShiftsPanel";
 import MapPanel from "./routes/panels/MapPanel";
 import DetailPanel from "./routes/panels/DetailPanel";
 import ActivityDetailPanel from "./routes/panels/ActivityDetailPanel";
+import WorkingInStorePanel from "./routes/panels/WorkingInStorePanel";
 
 function App() {
   const [selectedDate, setSelectedDate] = useState([Date.now(), Date.now()]);
@@ -96,6 +97,16 @@ function App() {
                 element={
                   <ProtectedRoute>
                     <ActivityDetailPanel />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                exact
+                path="/menu/workingInStore"
+                element={
+                  <ProtectedRoute>
+                    <WorkingInStorePanel />
                   </ProtectedRoute>
                 }
               />
