@@ -11,7 +11,6 @@ import {
   TableCell,
   Text,
   Title,
-  Badge,
   Flex,
   Button,
   Bold,

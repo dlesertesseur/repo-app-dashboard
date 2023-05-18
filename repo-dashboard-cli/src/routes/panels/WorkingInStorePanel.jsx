@@ -1,23 +1,4 @@
-import {
-  Badge,
-  Bold,
-  Button,
-  Flex,
-  List,
-  ListItem,
-  Metric,
-  SelectBox,
-  SelectBoxItem,
-  Subtitle,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeaderCell,
-  TableRow,
-  Text,
-  Title,
-} from "@tremor/react";
+import { Badge, Bold, Button, Flex, List, ListItem, SelectBox, SelectBoxItem, Subtitle, Text, Title } from "@tremor/react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -33,14 +14,10 @@ import { config } from "../../config/Config";
 
 const WorkingInStorePanel = () => {
   const [stores, setStores] = useState(null);
-  const [position, setPosition] = useState([
-    -34.60347397265535, -58.381591857672035,
-  ]);
+  const [position, setPosition] = useState([-34.60347397265535, -58.381591857672035]);
 
-  const { selectedRetailer, selectedStore, setSelectedStore } =
-    useContext(AppStateContext);
+  const { selectedRetailer, selectedStore, setSelectedStore } = useContext(AppStateContext);
   const { t } = useTranslation();
-  const [selectedRow, setSelectedRow] = useState(null);
   const mapRef = useRef(null);
   const size = useWindowSize();
   const navigate = useNavigate();
@@ -98,11 +75,7 @@ const WorkingInStorePanel = () => {
     if (stores) {
       ret = stores?.map((store) => {
         return (
-          <Marker
-            icon={createIcon()}
-            key={store.name}
-            position={[store.latitude, store.longitude]}
-          >
+          <Marker icon={createIcon()} key={store.name} position={[store.latitude, store.longitude]}>
             <Popup>
               <Title>{store.name}</Title>
               <Subtitle>{store.address}</Subtitle>
@@ -112,16 +85,14 @@ const WorkingInStorePanel = () => {
                   <ListItem key={item.id}>
                     {/* <span>{item.trabajo}</span> */}
 
-                    <span className="inline-block h-6 w-6 rounded-full ring-2 ring-white">
+                    <span className="inline-block h-10 w-10 rounded-full ring-2 ring-white mr-2">
                       <img src={getPhoto(item.foto)} className="rounded-full" />
                     </span>
-                    <div className="flex flex-row justify-start items-center">{item.asignadoA}</div>
+                    <div className="flex flex-row justify-start items-center">
+                      <Bold>{item.asignadoA}</Bold>
+                    </div>
                     <span>
-                      <Badge
-                        className="h-6 ml-2"
-                        color="emerald"
-                        icon={StatusOnlineIcon}
-                      >
+                      <Badge className="h-6 ml-2" color="emerald" icon={StatusOnlineIcon}>
                         {item.adicional}
                       </Badge>
                     </span>
@@ -138,14 +109,7 @@ const WorkingInStorePanel = () => {
 
   const createStores = () => {
     const ret = stores.map((store) => {
-      return (
-        <SelectBoxItem
-          key={store._id}
-          value={store._id}
-          text={store.name}
-          icon={BadgeCheckIcon}
-        />
-      );
+      return <SelectBoxItem key={store._id} value={store._id} text={store.name} icon={BadgeCheckIcon} />;
     });
     return ret;
   };
