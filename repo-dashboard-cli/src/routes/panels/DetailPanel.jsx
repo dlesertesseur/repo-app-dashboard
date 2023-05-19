@@ -37,6 +37,7 @@ const DetailPanel = () => {
           state: {
             group: title,
             user: item.asignadoA,
+            photo: item.foto,
             detail: item.detalle,
           },
         });
@@ -49,6 +50,7 @@ const DetailPanel = () => {
               group: title,
               user: item.asignadoA,
               detail: item.detalleJornada,
+              photo: item.foto,
             },
           });
         }
@@ -63,6 +65,24 @@ const DetailPanel = () => {
   const getPhoto = (photo) => {
     const ret = config.URL_BASE_PHOTO + photo;
     return ret;
+  };
+
+  const getColor = (data) => {
+    let color = "emerald";
+    if (data) {
+      switch (data) {
+        case "Ausente":
+          color = "red";
+          break;
+
+        case "Necesidades Fisiologicas":
+        case "Refrigerio":
+          color = "yellow";
+          break;
+      }
+    }
+
+    return color;
   };
 
   return (
@@ -80,43 +100,22 @@ const DetailPanel = () => {
       </Flex>
 
       {size && size.height > 0 ? (
-        <div
-          className="mt-5 overflow-auto"
-          style={{ height: size.height - 250 }}
-        >
+        <div className="mt-5 overflow-auto" style={{ height: size.height - 250 }}>
           <Card>
             {/* <Title>{title}</Title> */}
             <Table className="mt-5">
               <TableHead>
                 <TableRow>
                   <TableHeaderCell>{""}</TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col1")}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col3")}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col4")}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col5")}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col6")}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col7")}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col8")}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col9")}
-                  </TableHeaderCell>
-                  <TableHeaderCell>
-                    {t("panels.detail.colums.col10")}
-                  </TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col1")}</TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col3")}</TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col4")}</TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col5")}</TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col6")}</TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col7")}</TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col8")}</TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col9")}</TableHeaderCell>
+                  <TableHeaderCell>{t("panels.detail.colums.col10")}</TableHeaderCell>
                   <TableHeaderCell>{""}</TableHeaderCell>
                 </TableRow>
               </TableHead>
@@ -131,10 +130,7 @@ const DetailPanel = () => {
                   >
                     <TableCell>
                       <div className="inline-block h-12 w-12 rounded-full ring-2 ring-white">
-                        <img
-                          src={getPhoto(item.foto)}
-                          className="rounded-full"
-                        />
+                        <img src={getPhoto(item.foto)} className="rounded-full" />
                       </div>
                     </TableCell>
                     <TableCell>
@@ -165,7 +161,7 @@ const DetailPanel = () => {
                       <Text>{item.fichadaDeSalida}</Text>
                     </TableCell>
                     <TableCell>
-                      <Badge color="emerald" icon={StatusOnlineIcon}>
+                      <Badge color={getColor(item.adicional)} icon={StatusOnlineIcon}>
                         {item.adicional}
                       </Badge>
                     </TableCell>

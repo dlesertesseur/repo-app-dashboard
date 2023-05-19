@@ -19,6 +19,7 @@ import {
 import { useWindowSize } from "../../hooks";
 import { config } from "../../config/Config";
 import { useState } from "react";
+import WorkerPanel from "../../components/WorkerPanel";
 
 const ActivityDetailPanel = () => {
   const { t } = useTranslation();
@@ -28,6 +29,7 @@ const ActivityDetailPanel = () => {
 
   const group = location.state.group;
   const user = location.state.user;
+  const photo = location.state.photo;
   const detail = location.state.detail;
 
   const [selectedRow, setSelectedRow] = useState(null);
@@ -45,12 +47,26 @@ const ActivityDetailPanel = () => {
     return ret;
   };
 
+  const getColor = (data) => {
+    let color = "emerald";
+    if(data){
+      switch (data) {
+        case "No encontrado":
+          color = "red";
+          break;
+      }
+    }
+
+    return(color);
+  }
+  
   return (
     <div className="px-10 pt-2 w-screen">
       <Flex dir="row" alignItems="center" justifyContent="between">
         <div>
-          <Title>{t("panels.activityDetail.title") + " | " + group + " | " + user}</Title>
-          <Text>{t("panels.activityDetail.description")}</Text>
+          {/* <Title>{t("panels.activityDetail.title") + " | " + group + " | " + user}</Title>
+          <Text>{t("panels.activityDetail.description")}</Text> */}
+          <WorkerPanel name={user} activity={group} photo={photo}/>
         </div>
         <div>
           <Button size="xs" onClick={onBack}>
@@ -98,7 +114,7 @@ const ActivityDetailPanel = () => {
                     </TableCell>
                     <TableCell>
                       {item.adicional ? (
-                        <Badge color="emerald" icon={StatusOnlineIcon}>
+                        <Badge color={getColor(item.adicional)} icon={StatusOnlineIcon}>
                           {item.adicional}
                         </Badge>
                       ) : null}

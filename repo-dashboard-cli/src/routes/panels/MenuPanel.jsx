@@ -61,32 +61,29 @@ const MenuPanel = () => {
     <div className="px-10 w-screen">
       <div className="flex flex-row h-10 items-center justify-start">
         <div>
-          <Button
-            size="xs"
-            variant="secondary"
-            onClick={viewOnMap}
-            className=""
-          >
+          <Button size="xs" variant="secondary" onClick={viewOnMap} className="">
             {t("button.viewOnMap")}
           </Button>
         </div>
       </div>
       <Grid numCols={1} numColsSm={2} numColsLg={3} className="gap-4 mt-2">
-        {indicators?.map((indicator) => {
-          return (
-            <Col key={indicator.indicador}>
-              <MenuCard
-                title={indicator.descripcion}
-                metric={indicator.cantidad}
-                onPress={() => {
-                  onDetail(indicator.descripcion, indicator.detalle);
-                }}
-                icon={UsersIcon}
-                color={"blue"}
-              />
-            </Col>
-          );
-        })}
+        {indicators ? (
+          indicators?.map((indicator) => {
+            return (
+              <Col key={indicator.indicador}>
+                <MenuCard
+                  title={indicator.descripcion}
+                  metric={indicator.cantidad}
+                  onPress={() => {
+                    onDetail(indicator.descripcion, indicator.detalle);
+                  }}
+                  icon={UsersIcon}
+                  color={"blue"}
+                />
+              </Col>
+            );
+          })
+        ) : null}
       </Grid>
     </div>
   );

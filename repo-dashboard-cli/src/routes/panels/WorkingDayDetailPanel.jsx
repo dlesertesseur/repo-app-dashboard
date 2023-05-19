@@ -18,6 +18,7 @@ import {
 import { useWindowSize } from "../../hooks";
 import { config } from "../../config/Config";
 import { useState } from "react";
+import WorkerPanel from "../../components/WorkerPanel";
 
 const WorkingDayDetailPanel = () => {
   const { t } = useTranslation();
@@ -28,6 +29,7 @@ const WorkingDayDetailPanel = () => {
   const group = location.state.group;
   const user = location.state.user;
   const detail = location.state.detail;
+  const photo = location.state.photo;
 
   const [selectedRow, setSelectedRow] = useState(null);
 
@@ -48,10 +50,13 @@ const WorkingDayDetailPanel = () => {
     <div className="px-10 pt-2 w-screen">
       <Flex dir="row" alignItems="center" justifyContent="between">
         <div>
-          <Title>
+          {/* <Title>
             {t("panels.workingDayDetail.title") + " | " + group + " | " + user}
           </Title>
-          <Text>{t("panels.workingDayDetail.description")}</Text>
+          <Text>{t("panels.workingDayDetail.description")}</Text> */}
+
+          <WorkerPanel name={user} activity={group} photo={photo}/>
+
         </div>
         <div>
           <Button size="xs" onClick={onBack}>
